@@ -419,7 +419,7 @@ menuToggle.addEventListener('click', () => {
 ---
 
    
-3. **Lancez le site** en ouvrant `index.html` dans votre navigateur.
+5. **Lancez le site** en ouvrant `index.html` dans votre navigateur.
 
 ---
 
