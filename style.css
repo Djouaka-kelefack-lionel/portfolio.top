@@ -45,7 +45,7 @@ nav {
 }
 
 .hero {
-    padding: 6rem 10%;
+    padding: 6rem var(--padding-desktop);
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
@@ -109,12 +109,6 @@ nav {
 
 .profile-image:hover {
     transform: scale(1.02);
-}
-
-h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
 }
 
 h2 {
@@ -735,4 +729,371 @@ input:-webkit-autofill:focus {
     -webkit-text-fill-color: white;
     -webkit-box-shadow: 0 0 0px 1000px #0a192f inset;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Variables CSS globales */
+:root {
+    --padding-mobile: 5%;
+    --padding-tablet: 8%;
+    --padding-desktop: 10%;
+}
+
+/* Styles de base modifiés pour plus de flexibilité */
+.hero, .about, .journey, .skills, .services, .projects, .contact {
+    padding: 6rem var(--padding-desktop);
+}
+
+/* Media Queries */
+
+/* Pour les grands écrans (TV) */
+@media screen and (min-width: 1920px) {
+    :root {
+        --padding-desktop: 15%;
+    }
+
+    html {
+        font-size: 18px; /* Augmente légèrement la taille de base du texte */
+    }
+
+    .hero-content {
+        max-width: 1000px;
+    }
+
+    .projects-container, .services-container {
+        max-width: 1800px;
+    }
+}
+
+/* Pour les tablettes */
+@media screen and (max-width: 1024px) {
+    :root {
+        --padding-desktop: var(--padding-tablet);
+    }
+
+    html {
+        font-size: 15px;
+    }
+
+    /* Ajustement du hero */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .profile-image {
+        margin: 0 auto;
+        width: 400px;
+        height: 400px;
+    }
+
+    /* Ajustement des sections à deux colonnes */
+    .journey-container, 
+    .skills-container,
+    .info-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    /* Ajustement des services */
+    .services-container {
+        flex-wrap: wrap;
+    }
+
+    .service-card {
+        flex: 1 1 calc(50% - 1rem);
+        min-width: 280px;
+    }
+
+    /* Ajustement des projets */
+    .project-row {
+        flex-wrap: wrap;
+    }
+
+    .project-card {
+        flex: 1 1 calc(50% - 1rem);
+        min-width: 280px;
+    }
+}
+
+/* Pour les mobiles */
+@media screen and (max-width: 768px) {
+    :root {
+        --padding-desktop: var(--padding-mobile);
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    /* Navigation mobile */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background: #0a192f;
+        flex-direction: column;
+        padding: 2rem;
+        transition: 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    /* Ajustement du hero */
+    .profile-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cta-buttons button {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Ajustement des formulaires */
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Ajustement des services et projets */
+    .service-card,
+    .project-card {
+        flex: 1 1 100%;
+    }
+
+    /* Ajustement des info boxes */
+    .info-box {
+        min-width: 100%;
+    }
+
+    /* Ajustement du footer */
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* Pour les très petits écrans */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Pour l'orientation paysage sur mobile */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .nav-links {
+        padding: 1rem;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding-top: 2rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Ajout d'un menu burger pour mobile */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Media Queries pour la section hero */
+@media screen and (max-width: 1200px) {
+    .profile-image {
+        width: 400px;
+        height: 400px;
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 100px;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .profile-image {
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        margin-top: 80px;
+        padding: 4rem var(--padding-mobile);
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: clamp(1.4rem, 4vw, 2.5rem);
+    }
+
+    .hero p {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        padding: 0 1rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 2rem;
+    }
+
+    .cta-buttons button {
+        width: 100%;
+        margin: 0;
+    }
+
+    .profile-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero {
+        margin-top: 60px;
+        padding: 3rem var(--padding-mobile);
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Styles spécifiques pour le h1 du hero */
+.hero .title-container h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    white-space: normal; /* Permettre le retour à la ligne */
+}
+
+/* Media Queries pour le h1 du hero */
+@media screen and (max-width: 1024px) {
+    .hero .title-container h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero .title-container h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero .title-container h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Styles pour le menu mobile */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+        position: relative;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background: #0a192f;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        transition: 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
 }
