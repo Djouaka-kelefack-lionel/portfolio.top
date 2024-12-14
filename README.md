@@ -218,6 +218,7 @@ Utilisés pour les décorations et les animations.
    /portfolio
    ├── index.html
    ├── style.css
+   ├── scrippt.js
    └── /img
        ├── profile.jpg
        ├── logo.png
